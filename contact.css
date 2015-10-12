@@ -1,8 +1,11 @@
 form{border-top: 3px black solid}
 
-.row:nth-child(odd){
+.row:nth-child(even){
 	background-color: #D0D0D0 ;
 }
 .header{
 	border-bottom: 1px black solid;
+}
+div .btn{
+	margin: 3px;
 }

@@ -10,7 +10,6 @@
 
 <div class="container" ng-controller=" contactCtrl as contacts">
 	<!-- for each entry create a row div -->
-	<h1>Contact List</h1>
 	<div class="row">
 		<div class="col-md-4 header" ng-repeat=" head in contacts.heading" >
 			<h2>{{head}}</h2>
@@ -29,9 +28,13 @@
 		</div>
 		<div class="col-md-4">
 			{{contact.phone}}
+			<div class="btn btn-primary" ng-click="contacts.removeEntry($index)" >
+				Delete
+				</div>
 		</div>
 	</div>
 <form ng-submit="contacts.addEntry()" class="form-horizontal">
+	<div class="col-md-4">
 	<div class="form-group">
 		<label for="fName">First Name:</label>
 		<input type="text" required ng-model="contacts.entries.fName" id="fName" class="form-control">
@@ -42,13 +45,16 @@
 	</div>
 	<div class="form-group">
 		<label for="email">Email:</label>
-		<input type="email" ng-model="contacts.entries.email" class="form-control">
+		<input type="email" require ng-model="contacts.entries.email" class="form-control">
 	</div>
 	<div class="form-group">
 		<label for="phone">Phone Number:</label>
-	<input type="number" ng-model="contacts.entries.phone" class="form-control">
-	<input class="btn-primary" type="submit" value="add">
+	<input type="tel" ng-model="contacts.entries.phone" class="form-control">
+	<input class="btn-primary" require type="submit" value="add">
 </form>
+</div>
+<div class="col-md-8">
+</div>
 
 </div>
 

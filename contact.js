@@ -1,5 +1,5 @@
 angular.module('contactApp',[])
-	.controller('contactCtrl', function($scope){
+	.controller('contactCtrl', function(){
 		var contacts = this;
 
 		contacts.entries = [
@@ -22,5 +22,8 @@ angular.module('contactApp',[])
 			contacts.entries.lName = "";
 			contacts.entries.email = "";
 			contacts.entries.phone = "";
+		};
+		contacts.removeEntry= function(index){
+			contacts.entries.splice(index,1);
 		};
 	});
