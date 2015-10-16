@@ -9,32 +9,49 @@
 <body>
 
 <div class="container" ng-controller=" contactCtrl as contacts">
+	<!--search bar -->
+	<div class="row">
+		<div class="col-md-6">
+			<form class="form-inline">
+				<div class="form-group">
+				<label>Search: </label>
+				<input ng-model="contactQuery" type="text" id="search" class="form-control">
+				</div>
+			</form>
+		</div>
+		<div class="col-md-6">
+		</div>
+	</div>
 	<!-- for each entry create a row div -->
 	<div class="row">
-		<div class="col-md-4 header" ng-repeat=" head in contacts.heading" >
+		<div class="col-md-3 header" ng-repeat=" head in contacts.heading" >
 			<h2>{{head}}</h2>
 		</div>
 
 	</div>
-	<div class="row" ng-repeat=" contact in contacts.entries">
+	<div class="row" id="contacts" ng-repeat=" contact in contacts.entries | filter:contactQuery">
 		<!-- for each value create a column -->
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{{contact.fName}}
 			{{contact.lName}}
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{{contact.email}}
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			{{contact.phone}}
+		</div>
+		<div class="col-md-3">
 			<div class="btn btn-primary" ng-click="contacts.removeEntry($index)" >
 				Delete
-				</div>
+			</div>
 		</div>
+		
 	</div>
-<form ng-submit="contacts.addEntry()" class="form-horizontal">
-	<div class="col-md-4">
+	<div class="col-md-4 well">
+	<form ng-submit="contacts.addEntry()" class="form-horizontal" class="">
+
 	<div class="form-group">
 		<label for="fName">First Name:</label>
 		<input type="text" required ng-model="contacts.entries.fName" id="fName" class="form-control">
@@ -50,11 +67,11 @@
 	<div class="form-group">
 		<label for="phone">Phone Number:</label>
 	<input type="tel" ng-model="contacts.entries.phone" class="form-control">
-	<input class="btn-primary" require type="submit" value="add">
-</form>
-</div>
-<div class="col-md-8">
-</div>
+	<input class="btn btn-primary" require type="submit" value="add" id="addC">
+	</form>
+	</div>
+	<div class="col-md-8">
+	</div>
 
 </div>
 

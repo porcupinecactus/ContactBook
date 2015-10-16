@@ -1,11 +1,17 @@
-form{border-top: 3px black solid}
+/*form{border-top: 3px black solid}*/
 
-.row:nth-child(even){
+#contacts:nth-child(odd){
 	background-color: #D0D0D0 ;
 }
-.header{
-	border-bottom: 1px black solid;
+.row:nth-child(3){
+	border-top: 1px black solid
 }
+
 div .btn{
 	margin: 3px;
 }
+
+#addC{
+	margin-top: 2px;
+}
+#search{margin-top: 5px}
